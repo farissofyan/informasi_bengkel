@@ -40,8 +40,7 @@ include("dist/function/format_rupiah.php");
 							<tbody>
 								<?php
 								$i = 1;
-								$sql = "SELECT trx.*, konsumen.*, users.* FROM trx, konsumen, users WHERE
-													trx.id_kon=konsumen.id_kon AND trx.id_kasir=users.id ORDER BY trx.tgl_trx DESC";
+								$sql = "SELECT trx.*, konsumen.*, users.* FROM trx, konsumen, users WHERE users.role='customer' and trx.id_kon=konsumen.id_kon AND trx.id_kasir=users.id ORDER BY trx.tgl_trx DESC";
 								$ress = mysqli_query($conn, $sql);
 								while ($data = mysqli_fetch_array($ress)) {
 									echo '<tr>';

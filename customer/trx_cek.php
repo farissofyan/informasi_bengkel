@@ -13,7 +13,7 @@ while ($data = mysqli_fetch_array($ress)) {
 	$ttl += $tot;
 }
 // deskripsi halaman
-$pagedesc = "Beranda";
+$pagedesc = "Cek Booking";
 include("layout_top.php");
 ?>
 <!-- top of file -->
@@ -22,7 +22,7 @@ include("layout_top.php");
 	<div class="container-fluid">
 		<div class="row">
 			<div class="col-lg-12">
-				<h1 class="page-header">Beranda</h1>
+				<h1 class="page-header">Cek Booking</h1>
 			</div><!-- /.col-lg-12 -->
 		</div><!-- /.row -->
 
@@ -52,7 +52,7 @@ include("layout_top.php");
 						<?php
 						$i = 1;
 						$grand = 0;
-						$sql = "SELECT tmp_trx.*, barangjasa.*, users.id, users.nama as nama_user FROM tmp_trx, barangjasa, users WHERE tmp_trx.id_brg=barangjasa.id_brg AND tmp_trx.id_kasir=users.id";
+						$sql = "SELECT tmp_trx.*, barangjasa.*, users.id, users.nama as nama_user FROM tmp_trx, barangjasa, users WHERE users.id='$sess_csid' and tmp_trx.id_brg=barangjasa.id_brg AND tmp_trx.id_kasir=users.id";
 						$ress = mysqli_query($conn, $sql);
 						while ($data = mysqli_fetch_array($ress)) { ?>
 							<tr>
@@ -74,7 +74,7 @@ include("layout_top.php");
 								<td class="text-center">Rp<?= $data['harga'] ?></td>
 								<td><?php if ($data['status'] == "Done") { ?>
 									<?php } elseif ($data['status'] == "Konfirmasi") { ?>
-										<a href="#" class="btn btn-success btn-xs">Hubungi Admin</a> <a href="trx_batal.php?id=<?php echo $data['id_tmp']; ?>&id_trx=<?php echo $data['id_trx']; ?>" onclick="return confirm('Apakah anda yakin akan menghapus <?php echo $data['nama']; ?>? Uang yang sudah di transfer tidak dapat di kembalikan!');" class="btn btn-danger btn-xs">Hapus</a>
+										<center><a href="https://wa.me/0895358560637" class="btn btn-success btn-xs">Hubungi Admin</a> <a href="trx_batal.php?id=<?php echo $data['id_tmp']; ?>&id_trx=<?php echo $data['id_trx']; ?>" onclick="return confirm('Apakah anda yakin akan menghapus <?php echo $data['nama']; ?>? Uang yang sudah di transfer tidak dapat di kembalikan!');" class="btn btn-danger btn-xs">Hapus</a></center>
 									<?php } else {
 									} ?>
 								</td>

@@ -7,7 +7,7 @@
 	include("layout_top.php");
 ?>
 <script type="text/javascript">
-	function checkKasirAvailability() {
+	function checkManagementAvailability() {
 	$("#loaderIcon").show();
 	jQuery.ajax({
 		url: "check_management.php",

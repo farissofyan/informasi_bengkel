@@ -57,8 +57,8 @@ include("layout_top.php");
 									echo '<td class="text-center">' . $data['password'] . '</td>';
 									echo '<td class="text-center"><img src="foto/' . $data['foto'] . '" width="50px"</td>';
 									echo '<td class="text-center">
-													  <a href="management_edit.php?kas=' . $data['id'] . '" class="btn btn-warning btn-xs">Edit</a>'; ?>
-									<a href="management_hapus.php?kas=<?php echo $data['id']; ?>" onclick="return confirm('Apakah anda yakin akan menghapus <?php echo $data['nama']; ?>?');" class="btn btn-danger btn-xs">Hapus</a></td>
+													  <a href="management_edit.php?mgn=' . $data['id'] . '" class="btn btn-warning btn-xs">Edit</a>'; ?>
+									<a href="management_hapus.php?mgn=<?php echo $data['id']; ?>" onclick="return confirm('Apakah anda yakin akan menghapus <?php echo $data['nama']; ?>?');" class="btn btn-danger btn-xs">Hapus</a></td>
 								<?php
 									echo '</td>';
 									echo '</tr>';
